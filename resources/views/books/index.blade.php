@@ -25,14 +25,14 @@
                             <td class="text-truncate" style="max-width: 200px;">{{ $book->description }}</td>
                             <td>{{ $book->author }}</td>
                             <td>{{ $book->genre }}</td>
-                            <td style="min-width: 90px">{{ $book->release_date }}</td>
+                            <td style="min-width: 100px">{{ $book->release_date }}</td>
                             <td class="text-truncate" style="max-width: 200px;">{{ $book->keywords }}</td>
                             <td>
                                 <img src="{{ $book->cover_image }}" alt="{{ $book->title }} borítókép"
                                     class="img-thumbnail" style="width: 80px; height: auto;">
                             </td>
-                            <td>{{ $book->created_at->format('Y-m-d H:i') }}</td>
-                            <td>{{ $book->updated_at->format('Y-m-d H:i') }}</td>
+                            <td style="min-width: 100px">{{ $book->created_at->format('Y-m-d H:i') }}</td>
+                            <td style="min-width: 100px">{{ $book->updated_at->format('Y-m-d H:i') }}</td>
                         </tr>
                     @endforeach
                 </tbody>
