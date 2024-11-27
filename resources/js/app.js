@@ -1,6 +1,6 @@
 import axios from "axios";
 import "./bootstrap";
-import "bootstrap";
+import * as bootstrap from "bootstrap";
 import jQuery from "jquery";
 window.$ = window.jQuery = jQuery;
 //import '../scss/app.scss';
@@ -40,7 +40,7 @@ $(function () {
             .post("/books", formData)
             .then(function (resp) {
                 if (resp.data.success) {
-                    $("#editBook #message").html(
+                    $("#addBook #message").html(
                         '<div class="alert alert-success">' +
                             resp.data.message +
                             "</div>"
@@ -51,7 +51,7 @@ $(function () {
             })
             .catch(function (error) {
                 console.error("Hiba történt: " + error);
-                $("#message").html(
+                $("#addBook #message").html(
                     '<div class="alert alert-danger">Hiba történt a mentés során!</div>'
                 );
             });
@@ -188,6 +188,13 @@ $(function () {
                     '<div class="alert alert-danger">Hiba történt a törlés során!</div>'
                 );
             });
+        setTimeout(() => {
+            const modalElement = document.getElementById("bookDeleteModal");
+            const modalInstance = bootstrap.Modal.getInstance(modalElement);
+            if (modalInstance) {
+                modalInstance.hide();
+            }
+        }, 1500);
     });
 });
 
