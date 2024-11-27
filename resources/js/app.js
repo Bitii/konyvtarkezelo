@@ -67,11 +67,15 @@ $(function () {
             year: "numeric",
             month: "2-digit",
             day: "2-digit",
+            hour: "2-digit",
+            minute: "2-digit",
         });
         let updatedAt = new Date(book.updated_at).toLocaleDateString("hu-HU", {
             year: "numeric",
             month: "2-digit",
             day: "2-digit",
+            hour: "2-digit",
+            minute: "2-digit",
         });
         let newRow = `<tr data-id="${book.id}">
                         <td class="fw-bold">${book.title}</td>
@@ -197,14 +201,16 @@ $(function () {
         }, 1500);
     });
 });
-
 // modal bezárásakor üríti az üzeneteket
 $("#bookAddModal").on("hidden.bs.modal", function () {
     $("#addBook #message").html("");
+    location.reload();
 });
 $("#bookEditModal").on("hidden.bs.modal", function () {
     $("#editBook #message").html("");
+    location.reload();
 });
 $("#bookDeleteModal").on("hidden.bs.modal", function () {
     $("#deleteBook #message").html("");
+    location.reload();
 });
