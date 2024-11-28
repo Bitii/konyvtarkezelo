@@ -36,7 +36,7 @@
                             <td style="min-width: 110px">{{ $book->release_date }}</td>
                             <td class="text-truncate" style="max-width: 200px;">{{ $book->keywords }}</td>
                             <td>
-                                <img src="{{ $book->cover_image }}" alt="{{ $book->title }} borítókép"
+                                <img src="{{ asset('storage/'.$book->cover_image) }}" alt="{{ $book->title }} borítókép"
                                     class="img-thumbnail" style="width: 80px; height: auto;">
                             </td>
                             <td style="min-width: 110px">{{ $book->created_at->format('Y-m-d H:i') }}</td>
