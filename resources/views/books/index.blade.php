@@ -1,6 +1,11 @@
 <x-layout>
     <div class="container py-5">
         <div class="d-flex justify-content-end mb-3">
+            <input type="text" id="searchBar">
+            <div class="px-2">
+                <button id="toggleHU" data-lang="hu">HU</button>
+                <button id="toggleEN" data-lang="en">EN</button>
+            </div>
             <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#bookAddModal">
                 Új könyv hozzáadása
             </button>

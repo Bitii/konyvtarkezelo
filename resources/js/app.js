@@ -200,6 +200,18 @@ $(function () {
             }
         }, 1500);
     });
+
+    // Könyv keresése
+    $("#searchBar").on("keyup", function () {
+        let search = $(this).val().toLowerCase();
+        $("table tbody tr").filter(function () {
+            $(this).toggle($(this).text().toLowerCase().indexOf(search) > -1);
+        });
+    });
+
+    // Könyv fordítása
+       
+
 });
 // modal bezárásakor üríti az üzeneteket
 $("#bookAddModal").on("hidden.bs.modal", function () {

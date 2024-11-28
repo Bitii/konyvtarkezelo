@@ -20,6 +20,6 @@ class Books extends Model
     ];
 
     public function translations(): HasMany{
-        return $this->hasMany(Translations::class, 'book_id', 'id');
+        return $this->hasMany(Translations::class, 'book_id');
     }
 }

@@ -18,6 +18,6 @@ class Translations extends Model
     ];
 
     public function book():BelongsTo{
-        return $this->belongsTo(Books::class, 'book_id', 'id');
+        return $this->belongsTo(Books::class, 'book_id');
     }
 }
