@@ -35,7 +35,7 @@ class TranslationController extends Controller
             'translated_title' => 'required|max:255',
             'translated_description' => 'required',
             'translated_genre' => 'required',
-            'translated_keywords' => 'required',
+            'translated_keywords' => 'nullable',
         ]);
 
         $translation = Translations::create([
@@ -61,7 +61,8 @@ class TranslationController extends Controller
     {
         $book = Books::findOrFail($id);
         $translation = Translations::where('book_id', $id)->first();
-        return view('books.translation', compact('translation', 'book'));
+        $hasTranslation = !is_null($translation);
+        return view('books.translation', compact('translation', 'book', 'hasTranslation'));
     }
 
     /**

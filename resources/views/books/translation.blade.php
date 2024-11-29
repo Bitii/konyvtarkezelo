@@ -8,10 +8,12 @@
                     <a href="{{ route('translations.show', $book->id) }}" class="btn btn-sm btn-dark">EN</a>
                 </div>
                 <div>
-                    <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
-                        data-bs-target="#addTranslationModal">
-                        Add translation
-                    </button>
+                    @if (!$hasTranslation)
+                        <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
+                            data-bs-target="#addTranslationModal">
+                            Add translation
+                        </button>
+                    @endif
                     <a href="{{ route('books.show', $book->id) }}" class="btn btn-secondary btn-sm">Vissza</a>
                 </div>
             </div>
