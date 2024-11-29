@@ -2,10 +2,6 @@
     <div class="container py-5">
         <div class="d-flex justify-content-end mb-3">
             <input type="text" id="searchBar">
-            <div class="px-2">
-                <button id="toggleHU" data-lang="hu">HU</button>
-                <button id="toggleEN" data-lang="en">EN</button>
-            </div>
             <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal" data-bs-target="#bookAddModal">
                 Új könyv hozzáadása
             </button>
@@ -36,17 +32,20 @@
                             <td style="min-width: 110px">{{ $book->release_date }}</td>
                             <td class="text-truncate" style="max-width: 200px;">{{ $book->keywords }}</td>
                             <td>
-                                <img src="{{ asset('storage/'.$book->cover_image) }}" alt="{{ $book->title }} borítókép"
-                                    class="img-thumbnail" style="width: 80px; height: auto;">
+                                <img src="{{ asset('storage/' . $book->cover_image) }}"
+                                    alt="{{ $book->title }} borítókép" class="img-thumbnail"
+                                    style="width: 80px; height: auto;">
                             </td>
                             <td style="min-width: 110px">{{ $book->created_at->format('Y-m-d H:i') }}</td>
                             <td style="min-width: 110px">{{ $book->updated_at->format('Y-m-d H:i') }}</td>
                             <td>
+                                <a href="{{ route('books.show', $book->id) }}" type="button"
+                                    class="btn btn-info btn-sm">Részletek</a>
                                 <button type="button" class="btn btn-warning btn-sm m-2 editBtn" data-bs-toggle="modal"
                                     data-bs-target="#bookEditModal" data-id="{{ $book->id }}">
                                     Szerkesztés
                                 </button>
-                                <button type="button" class="btn btn-danger btn-sm m-2 delBtn" data-bs-toggle="modal"
+                                <button type="button" class="btn btn-danger btn-sm delBtn" data-bs-toggle="modal"
                                     data-bs-target="#bookDeleteModal" data-id="{{ $book->id }}">
                                     Törlés
                                 </button>

@@ -58,6 +58,8 @@ $(function () {
     });
 
     // Könyv hozzáadásakor vagy frissítésekor frissíti a táblázatot
+    // nem vagyok abba biztos, hogy szükség van erre, mivel ha a modal-t bezárjuk lefrissül az oldal,(maga a módosításkor nem töltődik újra)
+    // hogy az adatbázisban eltárolt legfrissebb adatokat mutassa
     function freshTable(book, action) {
         let coverImage = book.cover_image ? book.cover_image : "";
         let coverAlt = book.cover_image
@@ -209,11 +211,36 @@ $(function () {
         });
     });
 
-    // Könyv fordítása
-       
+    // Könyvhöz tartozó fordítás hozzáadása
+    $("#addTranslation").on("submit", function (e) {
+        e.preventDefault();
+        let bookId = $(this).data("book-id");
+        let formData = new FormData(this);
 
+        axios
+            .post(`/translations/${bookId}`, formData)
+            .then(function (resp) {
+                if (resp.data.success) {
+                    $("#addTranslation #message").html(
+                        '<div class="alert alert-success">' +
+                            resp.data.message +
+                            "</div>"
+                    );
+                    $("#addTranslation")[0].reset();
+                    setTimeout(() => {
+                        location.reload();
+                    }, 1500);
+                }
+            })
+            .catch(function (error) {
+                console.error("Error: " + error);
+                $("#addTranslation #message").html(
+                    '<div class="alert alert-danger">Error saving translation!</div>'
+                );
+            });
+    });
 });
-// modal bezárásakor üríti az üzeneteket
+// Modal bezárásakor üríti az üzeneteket és újratölti az oldalt, hogy a legfrissebb adatokat mutassa
 $("#bookAddModal").on("hidden.bs.modal", function () {
     $("#addBook #message").html("");
     location.reload();

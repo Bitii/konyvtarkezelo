@@ -2,10 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Books;
+use Illuminate\Database\Seeder;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
+use App\Models\Translations;
+use App\Models\Books;
 
 class DatabaseSeeder extends Seeder
 {
@@ -26,6 +27,13 @@ class DatabaseSeeder extends Seeder
         ];
         foreach ($books as $book){
             Books::create($book);
+        }
+
+        $translatedBooks = [
+            ['book_id' => 1, 'translated_title' => 'Harry Potter and the Philosopher\'s Stone', 'translated_description' => 'It guides the reader to a magical world where Harry Potter, an orphan boy, learns that he is a wizard and is invited to Hogwarts School of Witchcraft and Wizardry. With his friends, Hermione Granger and Ron Weasley, he tries to prevent the evil Voldemort from obtaining the Philosopher\'s Stone, which hides the secret of eternal life. In the course of the story, Harry faces his past, the loss of his parents, and the fate that made him defeat Voldemort. The plot emphasizes the importance of friendship, courage and self-sacrifice, while presenting a magical world. The exciting and educational story captivates the reader while entertaining and thought-provoking.', 'translated_genre' => 'Fantasy', 'translated_keywords' => 'Harry Potter, Hogwarts, wizard, Voldemort, philosopher\'s stone, Hermione Granger, Ron Weasley, wizarding school'],
+        ];
+        foreach ($translatedBooks as $translatedBook){
+            Translations::create($translatedBook);
         }
     }
 }

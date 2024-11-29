@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Books;
 use Illuminate\Http\Request;
+use App\Models\Books;
 
 class BookController extends Controller
 {
@@ -21,7 +21,7 @@ class BookController extends Controller
      */
     public function create()
     {
-        return view('books.create');
+        //
     }
 
     /**
@@ -56,9 +56,10 @@ class BookController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Books $books)
+    public function show($id)
     {
-        //
+        $book = Books::findOrFail($id);
+        return view('books.show', compact('book'));
     }
 
     /**
@@ -116,6 +117,6 @@ class BookController extends Controller
         return response()->json([
             'success' => true,
             'message' => 'Könyv sikeresen törölve!',
-        ]);   
+        ]);
     }
 }
