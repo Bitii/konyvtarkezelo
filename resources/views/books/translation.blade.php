@@ -4,8 +4,8 @@
             <div class="card-header d-flex justify-content-between align-items-center">
                 <h2>{{ $translation ? $translation->translated_title : $book->title }}</h2>
                 <div class="px-2">
-                    <a href="{{ route('books.show', $book->id) }}" class="btn btn-sm btn-dark">HU</a>
-                    <a href="{{ route('translations.show', $book->id) }}" class="btn btn-sm btn-dark">EN</a>
+                    <a href="{{ route('books.show', $book->id) }}" class="btn btn-sm btn-dark" wire:navigate>HU</a>
+                    <a href="{{ route('translations.show', $book->id) }}" class="btn btn-sm btn-dark" wire:navigate>EN</a>
                 </div>
                 <div>
                     @if (!$hasTranslation)
