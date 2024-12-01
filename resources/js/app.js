@@ -235,7 +235,7 @@ $(function () {
             .catch(function (error) {
                 console.error("Error: " + error);
                 $("#addTranslation #message").html(
-                    '<div class="alert alert-danger">Error saving translation!</div>'
+                    '<div class="alert alert-danger">Hiba történt a fordítás hozzáadásakor</div>'
                 );
             });
     });

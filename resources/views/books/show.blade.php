@@ -5,7 +5,7 @@
                 <h2>{{ $book->title }}</h2>
                 <div class="px-2">
                     <a href="/show/{{ $book->id }}" class="btn btn-sm btn-dark" wire:navigate>HU</a>
-                    <a href="/translate/{{ $book->id }}" class="btn btn-sm btn-dark" wire:navigate>EN</a>
+                    <a href="/translate/{{ $book->id }}" class="btn btn-sm btn-dark">EN</a>
                 </div>
                 <a href="/" class="btn btn-secondary btn-sm">Vissza</a>
             </div>
