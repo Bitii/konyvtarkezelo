@@ -48,7 +48,7 @@ class TranslationController extends Controller
 
         return response()->json([
             'success' => true,
-            'message' => 'Translation added successfully!',
+            'message' => 'Fordítás sikeresen hozzáadva!',
             'translation' => $translation
         ]);
     }

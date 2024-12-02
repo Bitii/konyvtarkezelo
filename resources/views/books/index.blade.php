@@ -10,16 +10,16 @@
             <table class="table table-bordered table-hover align-middle text-center">
                 <thead class="table-dark">
                     <tr>
-                        <th scope="col">Title</th>
-                        <th scope="col">Description</th>
-                        <th scope="col">Author</th>
-                        <th scope="col">Genre</th>
-                        <th scope="col">Release Date</th>
-                        <th scope="col">Keywords</th>
-                        <th scope="col">Cover</th>
-                        <th scope="col">Created At</th>
-                        <th scope="col">Updated At</th>
-                        <th scope="col">Actions</th>
+                        <th scope="col">Cím</th>
+                        <th scope="col">Leírás</th>
+                        <th scope="col">Szerző</th>
+                        <th scope="col">Műfaj</th>
+                        <th scope="col">Kiadás dátuma</th>
+                        <th scope="col">Kulcsszavak</th>
+                        <th scope="col">Borítókép</th>
+                        <th scope="col">Létrehozva</th>
+                        <th scope="col">Módosítva</th>
+                        <th scope="col">Műveletek</th>
                     </tr>
                 </thead>
                 <tbody>
