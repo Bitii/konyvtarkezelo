@@ -1,18 +1,24 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Models\Translations;
 use App\Models\Books;
+use Illuminate\View\View;
 
 class TranslationController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
+        $translation = Translations::all();
+        $books = Books::all();
 
         return view('books.translation', compact('translation', 'books'));
     }
@@ -29,7 +35,7 @@ class TranslationController extends Controller
      * Store a newly created resource in storage.
      */
 
-    public function store(Request $request, $id)
+    public function store(Request $request, $id): JsonResponse
     {
         $validatedData = $request->validate([
             'translated_title' => 'required|max:255',
@@ -57,7 +63,7 @@ class TranslationController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show($id): View
     {
         $book = Books::findOrFail($id);
         $translation = Translations::where('book_id', $id)->first();

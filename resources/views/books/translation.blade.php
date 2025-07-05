@@ -5,12 +5,13 @@
                 <h2>{{ $translation ? $translation->translated_title : $book->title }}</h2>
                 <div class="px-2">
                     <a href="{{ route('books.show', $book->id) }}" class="btn btn-sm btn-dark" wire:navigate>HU</a>
-                    <a href="{{ route('translations.show', $book->id) }}" class="btn btn-sm btn-dark" wire:navigate>EN</a>
+                    <a href="{{ route('translations.show', $book->id) }}" class="btn btn-sm btn-dark"
+                       wire:navigate>EN</a>
                 </div>
                 <div>
                     @if (!$hasTranslation)
                         <button type="button" class="btn btn-info btn-sm" data-bs-toggle="modal"
-                            data-bs-target="#addTranslationModal">
+                                data-bs-target="#addTranslationModal">
                             Add translation
                         </button>
                     @endif
@@ -22,8 +23,8 @@
                     <div class="col-md-4">
                         @if ($book->cover_image)
                             <img src="{{ asset('storage/' . $book->cover_image) }}"
-                                alt="{{ $translation ? $translation->translated_title : $book->title }}"
-                                class="img-fluid rounded">
+                                 alt="{{ $translation ? $translation->translated_title : $book->title }}"
+                                 class="img-fluid rounded">
                         @endif
                     </div>
                     <div class="col-md-8">
@@ -53,7 +54,7 @@
 
     {{-- Modal a könyv lefordított adatainak megadásához --}}
     <div class="modal fade" id="addTranslationModal" tabindex="-1" aria-labelledby="addTranslationModalLabel"
-        aria-hidden="true">
+         aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -62,29 +63,30 @@
                 </div>
                 <div class="modal-body">
                     <form action="{{ route('translations.store', $book->id) }}" method="POST" id="addTranslation"
-                        data-book-id="{{ $book->id }}" enctype="multipart/form-data">
+                          data-book-id="{{ $book->id }}" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
                             <label for="editTitle" class="form-label">Book Name</label>
                             <input type="text" id="translated_title" name="translated_title" class="form-control"
-                                required>
+                                   required>
                         </div>
 
                         <div class="mb-3">
                             <label for="editDescription" class="form-label">Description</label>
-                            <textarea id="translated_description" name="translated_description" class="form-control" rows="4" required></textarea>
+                            <textarea id="translated_description" name="translated_description" class="form-control"
+                                      rows="4" required></textarea>
                         </div>
 
                         <div class="mb-3">
                             <label for="editGenre" class="form-label">Genre</label>
                             <input type="text" id="translated_genre" name="translated_genre" class="form-control"
-                                required>
+                                   required>
                         </div>
 
                         <div class="mb-3">
                             <label for="editKeywords" class="form-label">Keywords</label>
                             <input type="text" id="translated_keywords" name="translated_keywords"
-                                class="form-control">
+                                   class="form-control">
                         </div>
                         <div id="message"></div>
                         @if ($errors->any())
@@ -95,7 +97,7 @@
                                     @endforeach
                                 </ul>
                             </div>
-                        @endif
+                    @endif
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>

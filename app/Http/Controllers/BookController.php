@@ -1,16 +1,20 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App\Http\Controllers;
 
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use App\Models\Books;
+use Illuminate\View\View;
 
 class BookController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
         $books = Books::all();
         return view('books.index', compact('books'));
@@ -27,7 +31,7 @@ class BookController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request): JsonResponse
     {
         $validated = $request->validate([
             'title' => 'required|string|max:255',
@@ -56,7 +60,7 @@ class BookController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show($id)
+    public function show($id): View
     {
         $book = Books::findOrFail($id);
         return view('books.show', compact('book'));
@@ -66,7 +70,7 @@ class BookController extends Controller
      * Show the form for editing the specified resource.
      */
 
-    public function edit(Books $book)
+    public function edit(Books $book): JsonResponse
     {
         return response()->json([
             'success' => true,
@@ -78,7 +82,7 @@ class BookController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Books $book)
+    public function update(Request $request, Books $book): JsonResponse
     {
         $validated = $request->validate([
             'title' => 'required|string|max:255',
@@ -110,7 +114,7 @@ class BookController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Books $book)
+    public function destroy(Books $book): JsonResponse
     {
         $book->delete();
 
